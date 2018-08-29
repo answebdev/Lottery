@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lottery Generator</title>
+
+    <!-- Added link to the jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <!-- Added a link to Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
+
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="text-center jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4"><strong><i class="fas fa-dollar-sign fa-spin"></i> Lottery Generator <i class="fas fa-dollar-sign fa-spin"></i></strong></h1>
+                <h3>Today's Lottery number is:</h3>
+            </div>
+            <div id="lotteryNumber"></div>
+        </div>
+
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" id="user-number" placeholder="Enter nine-digit number" aria-label="Recipient's username"
+                aria-describedby="button-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" id="winner">Button</button>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        body {
+            background: url("full-bloom.png");
+        }
+
+        .jumbotron {
+            background-color: #0047AB;
+            color: white;
+        }
+
+        .btn-outline-secondary {
+            background-color: #0047AB;
+            color: white;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+
+            var randomNumber = "";
+            var randomDigit = 0;
+
+            for (var i = 1; i < 10; i++) {
+                randomDigit = Math.floor(Math.random() * 10);
+                randomNumber += randomDigit;
+                console.log(typeof randomNumber);
+            }
+            console.log("Random number is " + randomNumber);
+            // $("#lotteryNumber").text(randomNumber).css("font-size", "30px");
+
+            $("#winner").on("click", function () {
+                var userNumber = $("#user-number").val();
+                console.log("User entered " + userNumber);
+                if (parseInt(userNumber) === parseInt(randomNumber)) {
+                    alert("Congratulations! You win!");
+                } else {
+                    alert("Sorry, the winning number was " + randomNumber);
+                }
+                // console.log(typeof userNumber);
+            });
+
+
+        });
+
+    </script>
+
+    <!-- <script src="assets/javascript/game.js" type="text/javascript"></script> -->
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="assets/javascript/game.js" type="text/javascript"></script>
+
+</body>
+
+</html>
